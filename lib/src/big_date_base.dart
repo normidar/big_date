@@ -1,3 +1,5 @@
+import 'package:big_date/src/japanese_date.dart';
+
 class BigDate extends DateTime {
   BigDate.utc(int year,
       [int month = 1,
@@ -122,12 +124,20 @@ class BigDate extends DateTime {
     return format;
   }
 
+  JapanDate toJapanDate() {
+    return JapanDate(
+        year, month, day, hour, minute, second, millisecond, microsecond);
+  }
+
   String get locatedYear => year.toString();
   String get locatedMonth => month.toString();
   int get locatedDay => day;
   int get locatedHour => hour;
   int get locatedMinute => minute;
   int get locatedSecond => second;
+
+  /// return a locatedWeekDay if it is DateTime
+  /// will return Sun, Mon, Tue, Wed, Thu, Fri, Sat,
   String get locatedWeekDay {
     switch (weekday) {
       case DateTime.sunday:
