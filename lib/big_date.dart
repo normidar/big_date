@@ -1,10 +1,7 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library big_date;
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
-export 'src/big_date_base.dart';
-export 'src/japanese_date.dart';
-export 'type_def.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'package:big_date/src/big_date_base.dart';
+export 'package:big_date/src/datetime_extension.dart';
+export 'package:big_date/src/japanese_date.dart';
+// big_date
+export 'package:big_date/type_def.dart';
