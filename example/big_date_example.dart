@@ -1,4 +1,4 @@
-import 'package:big_date/src/japanese_date.dart';
+import 'package:big_date/big_date.dart';
 
 void main() {
   // DateTime d = DateTime(2022, 3, 2);
@@ -6,5 +6,6 @@ void main() {
   // print(d.format("WW"));
   // print(d.locatedWeekDay);
 
-  print(JapanDate(1711).locatedYear);
+  print(ChinaDate(-22).ganZhi);
+  print((-3).abs() % 10);
 }

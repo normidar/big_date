@@ -17,6 +17,19 @@ class JapanDate extends BigDate {
       int microsecond = 0])
       : super(year, month, day, hour, minute, second, millisecond, microsecond);
 
+  /// use Japanese now Era to get DateTime
+  /// like `JapanDate.era(4)` will be 2022
+  /// we should to change it when Era changed
+  JapanDate.era(int year,
+      [int month = 1,
+      int day = 1,
+      int hour = 0,
+      int minute = 0,
+      int second = 0,
+      int millisecond = 0,
+      int microsecond = 0])
+      : super(year + 2018, month, day, hour, minute, second, millisecond,
+            microsecond);
   @override
   String get locatedWeekDay {
     switch (weekday) {
