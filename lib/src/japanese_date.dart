@@ -39,6 +39,38 @@ class JapanDate extends BigDate {
     }
   }
 
+  /// after 明徳(1390)
+  final Map<int, String> _muromatiEraMap = {
+    1595: "慶長",
+    1591: "文禄",
+    1572: "天正",
+    1569: "元亀",
+    1557: "永禄",
+    1554: "弘治",
+    1531: "天文",
+    1527: "享禄",
+    1520: "大永",
+    1503: "永正",
+    1500: "文亀",
+    1491: "明応",
+    1488: "延徳",
+    1486: "長享",
+    1468: "文明",
+    1466: "応仁",
+    1465: "文正",
+    1459: "寛正",
+    1456: "長禄",
+    1454: "康正",
+    1451: "享徳",
+    1448: "宝徳",
+    1443: "文安",
+    1440: "嘉吉",
+    1428: "永享",
+    1427: "正長",
+    1393: "応永",
+    1389: "明徳",
+  };
+
   /// after 元和(1615)
   final Map<int, String> _edoEraMap = {
     1864: "慶応",
@@ -97,6 +129,12 @@ class JapanDate extends BigDate {
       for (int i in _edoEraMap.keys) {
         int _yearNum = year - i;
         if (_yearNum > 0) return _edoEraMap[i]! + _yearNum.toString();
+      }
+    }
+    if (year > 1390) {
+      for (int i in _muromatiEraMap.keys) {
+        int _yearNum = year - i;
+        if (_yearNum > 0) return _muromatiEraMap[i]! + _yearNum.toString();
       }
     }
     return "無年号";
