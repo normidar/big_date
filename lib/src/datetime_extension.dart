@@ -18,5 +18,15 @@ extension DateTimeExtension on DateTime {
         year, month, day, hour, minute, second, millisecond, microsecond);
   }
 
+  DateTime get theLastDayOfMonth {
+    return (month < 12)
+        ? DateTime(year, month + 1, 0)
+        : DateTime(year + 1, 1, 0);
+  }
+
+  DateTime get theFirstDayOfMonth {
+    return DateTime(year, month, 1);
+  }
+
   String format(String format) => toBigDate().format(format);
 }
