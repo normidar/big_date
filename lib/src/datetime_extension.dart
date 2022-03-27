@@ -18,12 +18,14 @@ extension DateTimeExtension on DateTime {
         year, month, day, hour, minute, second, millisecond, microsecond);
   }
 
+  /// get the last day of the month
   DateTime get theLastDayOfMonth {
     return (month < 12)
         ? DateTime(year, month + 1, 0)
         : DateTime(year + 1, 1, 0);
   }
 
+  /// get the first day of the month
   DateTime get theFirstDayOfMonth {
     return DateTime(year, month, 1);
   }

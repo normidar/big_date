@@ -16,21 +16,23 @@ know whether this package might be useful for them.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- get the sexagenary cycle(60-year cycle) in chinese date.
+- get the era name of japanese in japanese date.
+- get the last(first) day of the month.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- just import it.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+> first you must imort this package to use it.
 
 ```dart
-const like = 'sample';
+import 'package:big_date/big_date.dart';
 ```
+
+> and then you can use it like this
 
 ## Additional information
 

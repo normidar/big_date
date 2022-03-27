@@ -1,3 +1,8 @@
+## 0.1.0
+
+- Fix the format
+- get the last day and first day of a month
+
 ## 0.0.3
 
 - Fix can not use with default DateTime
