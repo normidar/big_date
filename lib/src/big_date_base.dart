@@ -32,95 +32,93 @@ class BigDate extends DateTime {
   /// use YYYY to format located year.
   /// use yyyy to format Gregorian calendar year
   /// use MM to format located month. (use MM please)
-  /// use mm or m to format Gregorian calendar month. (when 1~9th m will not include 0)
-  /// use DD or D to format located calendar day.
-  /// use dd or d to format Gregorian calendar day.
-  /// use hh or h to format Gregorian calendar hour.
-  /// use ii or i to format Gregorian calendar minute.
-  /// use ss or s to format Gregorian calendar second.
+  /// use _m or m to format Gregorian calendar month. (when 1~9th m will not include 0)
+  /// use _D or D to format located calendar day.
+  /// use _d or d to format Gregorian calendar day.
+  /// use _h or h to format Gregorian calendar hour.
+  /// use _i or i to format Gregorian calendar minute.
+  /// use _s or s to format Gregorian calendar second.
   /// use WW to format located calendar day of week (do not use W),
   /// in original calendar it will be English:
   /// Sun, Mon, Tue, Wed, Thu, Fri, Sat,
-  String format(String format) {
+  String format(String format, {String matchKey = "%"}) {
     // yyyy
     format = format.replaceAll(
-      RegExp(r"(?<!\\)yyyy"),
+      RegExp(r"(?<!\\)" + matchKey + "yyyy"),
       year.toString(),
     );
     format = format.replaceAll(
-      RegExp(r"(?<!\\)YYYY"),
+      RegExp(r"(?<!\\)" + matchKey + "YYYY"),
       locatedYear,
     );
     format = format.replaceAll(
-      RegExp(r"(?<!\\)MM"),
+      RegExp(r"(?<!\\)" + matchKey + "MM"),
       locatedMonth,
     );
     if (format.contains("m")) {
       format = format.replaceAll(
-        RegExp(r"(?<!\\)mm"),
+        RegExp(r"(?<!\\)" + matchKey + "_m"),
         month.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
-        RegExp(r"(?<!\\)m"),
+        RegExp(r"(?<!\\)" + matchKey + "m"),
         month.toString(),
       );
     }
     if (format.contains("D")) {
       format = format.replaceAll(
-        RegExp(r"(?<!\\)DD"),
+        RegExp(r"(?<!\\)" + matchKey + "_D"),
         locatedDay.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
-        RegExp(r"(?<!\\)D"),
+        RegExp(r"(?<!\\)" + matchKey + "D"),
         locatedDay.toString(),
       );
     }
     if (format.contains("d")) {
       format = format.replaceAll(
-        RegExp(r"(?<!\\)dd"),
+        RegExp(r"(?<!\\)" + matchKey + "_d"),
         day.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
-        RegExp(r"(?<!\\)d"),
+        RegExp(r"(?<!\\)" + matchKey + "d"),
         day.toString(),
       );
     }
     if (format.contains("h")) {
       format = format.replaceAll(
-        RegExp(r"(?<!\\)hh"),
+        RegExp("(?<!\\)" + matchKey + "_h"),
         hour.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
-        RegExp(r"(?<!\\)h"),
+        RegExp(r"(?<!\\)" + matchKey + "h"),
         hour.toString(),
       );
     }
     if (format.contains("i")) {
       format = format.replaceAll(
-        RegExp(r"(?<!\\)ii"),
+        RegExp(r"(?<!\\)" + matchKey + "_i"),
         minute.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
-        RegExp(r"(?<!\\)i"),
+        RegExp(r"(?<!\\)" + matchKey + "i"),
         minute.toString(),
       );
     }
     if (format.contains("s")) {
       format = format.replaceAll(
-        RegExp(r"(?<!\\)ss"),
+        RegExp(r"(?<!\\)" + matchKey + "_s"),
         second.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
-        RegExp(r"(?<!\\)s"),
+        RegExp(r"(?<!\\)" + matchKey + "s"),
         second.toString(),
       );
     }
     format = format.replaceAll(
-      RegExp(r"(?<!\\)WW"),
+      RegExp(r"(?<!\\)" + matchKey + "WW"),
       locatedWeekDay,
     );
-
-    format = format.replaceAll(RegExp(r"(?<!\\)\\"), "");
     return format;
   }
 

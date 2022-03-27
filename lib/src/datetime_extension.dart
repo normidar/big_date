@@ -1,4 +1,5 @@
 import 'package:big_date/src/big_date_base.dart';
+import 'package:big_date/src/chinese_date.dart';
 import 'package:big_date/src/japanese_date.dart';
 
 extension DateTimeExtension on DateTime {
@@ -9,6 +10,11 @@ extension DateTimeExtension on DateTime {
 
   JapanDate toJapanDate() {
     return JapanDate(
+        year, month, day, hour, minute, second, millisecond, microsecond);
+  }
+
+  ChinaDate toChinaDate() {
+    return ChinaDate(
         year, month, day, hour, minute, second, millisecond, microsecond);
   }
 
