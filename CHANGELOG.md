@@ -1,3 +1,8 @@
+## 0.1.1
+
+- Add documents
+- Add lastmonth and next month
+
 ## 0.1.0
 
 - Fix the format
