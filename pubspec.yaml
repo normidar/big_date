@@ -1,6 +1,6 @@
 name: big_date
 description: A Dart library that expand DateTime, it also support diiferent countries` calendar.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/normidar/big_date
 
 environment:

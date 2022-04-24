@@ -1,3 +1,7 @@
+## 0.1.2
+
+- fix a bug that about `/`
+
 ## 0.1.1
 
 - Add documents

@@ -87,7 +87,7 @@ class BigDate extends DateTime {
     }
     if (format.contains("h")) {
       format = format.replaceAll(
-        RegExp("(?<!\\)" + matchKey + "_h"),
+        RegExp(r"(?<!\\)" + matchKey + "_h"),
         hour.toString().padLeft(2, '0'),
       );
       format = format.replaceAll(
