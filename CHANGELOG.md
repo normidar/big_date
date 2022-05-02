@@ -1,3 +1,7 @@
+## 0.1.3
+
+- add some thing easy to find the useful methods.
+
 ## 0.1.2
 
 - fix a bug that about `/`

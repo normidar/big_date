@@ -19,16 +19,13 @@ extension DateTimeExtension on DateTime {
   }
 
   /// get the last day of the month
-  DateTime get theEndOfMonth {
-    return (month < 12)
-        ? DateTime(year, month + 1, 0)
-        : DateTime(year + 1, 1, 0);
-  }
+  DateTime get theEndOfMonth => lastDayOfMonth;
 
   /// get the 1st day of the month
-  DateTime get theStartOfMonth {
-    return DateTime(year, month, 1);
-  }
+  DateTime get theStartOfMonth => firstDayOfMonth;
+
+  DateTime get firstDayOfMonth => DateTime(year, month, 1);
+  DateTime get lastDayOfMonth => DateTime(year, month + 1, 0);
 
   /// get the 1st of last month
   DateTime get lastMonth {
