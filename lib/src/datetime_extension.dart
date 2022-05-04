@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:big_date/src/big_date_base.dart';
 import 'package:big_date/src/chinese_date.dart';
 import 'package:big_date/src/japanese_date.dart';
@@ -18,14 +20,35 @@ extension DateTimeExtension on DateTime {
         year, month, day, hour, minute, second, millisecond, microsecond);
   }
 
-  /// get the last day of the month
-  DateTime get theEndOfMonth => lastDayOfMonth;
-
   /// get the 1st day of the month
-  DateTime get theStartOfMonth => firstDayOfMonth;
-
   DateTime get firstDayOfMonth => DateTime(year, month, 1);
+
+  /// get the last day of the month
   DateTime get lastDayOfMonth => DateTime(year, month + 1, 0);
+
+  /// get the days of month
+  int get dayCountOfMonth =>
+      lastDayOfMonth.difference(firstDayOfMonth).inDays + 1;
+
+  /// loop the every day of the month
+  void forEachDayOfMonth(Function(DateTime) function) {
+    var day = firstDayOfMonth;
+    function(day);
+    while (day.isBefore(lastDayOfMonth)) {
+      day = day.add(Duration(days: 1));
+      function(day);
+    }
+  }
+
+  /// loop the every day of the month by reverse
+  void forEachDayOfMonthReverse(Function(DateTime) function) {
+    var day = lastDayOfMonth;
+    function(day);
+    while (day.isAfter(firstDayOfMonth)) {
+      day = day.add(Duration(days: -1));
+      function(day);
+    }
+  }
 
   /// get the 1st of last month
   DateTime get lastMonth {

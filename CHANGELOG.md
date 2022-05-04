@@ -1,3 +1,11 @@
+## 0.2.0
+
+- add method to for each day in a month.
+
+## 0.1.4
+
+- add method to get how mouh days in a month.
+
 ## 0.1.3
 
 - add some thing easy to find the useful methods.

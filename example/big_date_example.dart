@@ -6,6 +6,7 @@ void main() {
   // print(d.format("WW"));
   // print(d.locatedWeekDay);
 
-  print(ChinaDate(-22).ganZhi);
+  print(DateTime.now().lastMonth.lastMonth.lastMonth.dayCountOfMonth);
+  DateTime.now().forEachDayOfMonthReverse((d) => print(d));
   print((-3).abs() % 10);
 }
