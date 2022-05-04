@@ -16,13 +16,16 @@ know whether this package might be useful for them.
 
 ## Features
 
-- get the sexagenary cycle(60-year cycle) in chinese date.
-- get the era name of japanese in japanese date.
-- get the last(first) day of the month.
+- get the sexagenary cycle(60-year cycle) in chinese date(干支).
+- get the era name of japanese in japanese date(日本年号).
+- get some information about month. like:
+  - first day, last day
+  - for each day (normal, reverse, async)
+  - count of days
 
 ## Getting started
 
-- just import it.
+- import it like `import 'package:big_date/big_date.dart';`
 
 ## Usage
 
@@ -36,6 +39,9 @@ import 'package:big_date/big_date.dart';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
+TODO: 
+Tell users more about the package: 
+where to find more information, 
+how to contribute to the package, 
+how to file issues, what response they can expect 
 from the package authors, and more.

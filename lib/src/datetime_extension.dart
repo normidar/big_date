@@ -40,6 +40,16 @@ extension DateTimeExtension on DateTime {
     }
   }
 
+  /// loop the every day of the month by async
+  Future forEachDayOfMonthAsync(Future Function(DateTime) function) async {
+    var day = firstDayOfMonth;
+    await function(day);
+    while (day.isBefore(lastDayOfMonth)) {
+      day = day.add(Duration(days: 1));
+      await function(day);
+    }
+  }
+
   /// loop the every day of the month by reverse
   void forEachDayOfMonthReverse(Function(DateTime) function) {
     var day = lastDayOfMonth;
@@ -47,6 +57,17 @@ extension DateTimeExtension on DateTime {
     while (day.isAfter(firstDayOfMonth)) {
       day = day.add(Duration(days: -1));
       function(day);
+    }
+  }
+
+  /// loop the every day of the month by reverse
+  Future forEachDayOfMonthReverseAsync(
+      Future Function(DateTime) function) async {
+    var day = lastDayOfMonth;
+    await function(day);
+    while (day.isAfter(firstDayOfMonth)) {
+      day = day.add(Duration(days: -1));
+      await function(day);
     }
   }
 

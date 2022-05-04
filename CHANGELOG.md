@@ -1,3 +1,7 @@
+## 0.2.1
+
+- add method to for each day in a month by async.
+
 ## 0.2.0
 
 - add method to for each day in a month.
