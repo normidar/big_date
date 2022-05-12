@@ -17,6 +17,31 @@ class ChinaDate extends BigDate {
       int microsecond = 0])
       : super(year, month, day, hour, minute, second, millisecond, microsecond);
 
+  @override
+  String get locatedFullWeekDay => "星期" + locatedWeekDay;
+
+  @override
+  String get locatedWeekDay {
+    switch (weekday) {
+      case 7:
+        return "日";
+      case 1:
+        return "一";
+      case 2:
+        return "二";
+      case 3:
+        return "三";
+      case 4:
+        return "四";
+      case 5:
+        return "五";
+      case 6:
+        return "六";
+      default:
+        throw Exception();
+    }
+  }
+
   List<String> tenGan = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
   List<String> diZhi = [
     "子",

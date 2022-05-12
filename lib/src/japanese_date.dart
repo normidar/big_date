@@ -30,6 +30,10 @@ class JapanDate extends BigDate {
       int microsecond = 0])
       : super(year + 2018, month, day, hour, minute, second, millisecond,
             microsecond);
+
+  @override
+  String get locatedFullWeekDay => locatedWeekDay + "曜日";
+
   @override
   String get locatedWeekDay {
     switch (weekday) {

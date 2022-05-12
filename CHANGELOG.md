@@ -1,3 +1,8 @@
+## 0.2.2
+
+- let the format can analyzes english week or local week.
+- change example file to show more information.
+
 ## 0.2.1
 
 - add method to for each day in a month by async.

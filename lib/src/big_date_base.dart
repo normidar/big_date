@@ -38,9 +38,8 @@ class BigDate extends DateTime {
   /// use _h or h to format Gregorian calendar hour.
   /// use _i or i to format Gregorian calendar minute.
   /// use _s or s to format Gregorian calendar second.
-  /// use WW to format located calendar day of week (do not use W),
-  /// in original calendar it will be English:
-  /// Sun, Mon, Tue, Wed, Thu, Fri, Sat,
+  /// use _w or w to format English day of week, (w is like Sun, Mon, Tue, Wed, Thu, Fri, Sat,)
+  /// use _W or W to format located calendar day of week,(W is like 月,火,水,木)
   String format(String format, {String matchKey = "%"}) {
     // yyyy
     format = format.replaceAll(
@@ -115,10 +114,26 @@ class BigDate extends DateTime {
         second.toString(),
       );
     }
-    format = format.replaceAll(
-      RegExp(r"(?<!\\)" + matchKey + "WW"),
-      locatedWeekDay,
-    );
+    if (format.contains("w")) {
+      format = format.replaceAll(
+        RegExp(r"(?<!\\)" + matchKey + "_w"),
+        englishFullWeekDay,
+      );
+      format = format.replaceAll(
+        RegExp(r"(?<!\\)" + matchKey + "w"),
+        englishWeekDay,
+      );
+    }
+    if (format.contains("W")) {
+      format = format.replaceAll(
+        RegExp(r"(?<!\\)" + matchKey + "_W"),
+        locatedFullWeekDay,
+      );
+      format = format.replaceAll(
+        RegExp(r"(?<!\\)" + matchKey + "W"),
+        locatedWeekDay,
+      );
+    }
     return format;
   }
 
@@ -134,9 +149,34 @@ class BigDate extends DateTime {
   int get locatedMinute => minute;
   int get locatedSecond => second;
 
+  /// get English Full week days
+  String get englishFullWeekDay {
+    switch (weekday) {
+      case DateTime.sunday:
+        return "Sunday";
+      case DateTime.monday:
+        return "Monday";
+      case DateTime.tuesday:
+        return "Tuesday";
+      case DateTime.wednesday:
+        return "Wednesday";
+      case DateTime.thursday:
+        return "Thursday";
+      case DateTime.friday:
+        return "Friday";
+      case DateTime.saturday:
+        return "Saturday";
+      default:
+        throw Exception();
+    }
+  }
+
   /// return a locatedWeekDay if it is DateTime
   /// will return Sun, Mon, Tue, Wed, Thu, Fri, Sat,
-  String get locatedWeekDay {
+  String get locatedFullWeekDay => englishFullWeekDay;
+
+  /// get english week days
+  String get englishWeekDay {
     switch (weekday) {
       case DateTime.sunday:
         return "Sun";
@@ -156,4 +196,8 @@ class BigDate extends DateTime {
         throw Exception();
     }
   }
+
+  /// return a locatedWeekDay if it is DateTime
+  /// will return Sun, Mon, Tue, Wed, Thu, Fri, Sat,
+  String get locatedWeekDay => englishWeekDay;
 }
