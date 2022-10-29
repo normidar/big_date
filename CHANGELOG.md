@@ -1,3 +1,7 @@
+## 0.2.3
+
+- remove ffi
+
 ## 0.2.2
 
 - let the format can analyzes english week or local week.

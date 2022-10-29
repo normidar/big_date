@@ -1,4 +1,4 @@
-import 'package:big_date/src/japanese_date.dart';
+import 'package:big_date/src/japanese/japanese_date.dart';
 
 class BigDate extends DateTime {
   BigDate.utc(int year,

@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:big_date/src/big_date_base.dart';
 import 'package:big_date/src/chinese_date.dart';
-import 'package:big_date/src/japanese_date.dart';
+import 'package:big_date/src/japanese/japanese_date.dart';
 
 extension DateTimeExtension on DateTime {
   BigDate toBigDate() {

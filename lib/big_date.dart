@@ -3,7 +3,7 @@
 // publish your package hint: dart pub publish --dry-run
 // if you want to update your packages on power: dart pub upgrade --major-versions
 export 'package:big_date/type_def.dart';
-export 'package:big_date/src/japanese_date.dart';
+export 'package:big_date/src/japanese/japanese_date.dart';
 export 'package:big_date/src/chinese_date.dart';
 export 'package:big_date/src/big_date_base.dart';
 export 'package:big_date/src/datetime_extension.dart';
